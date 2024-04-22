@@ -1,0 +1,15 @@
+[package]
+name = "static-builder"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+jotdown = "0.4"
+prettyplease = "0.2"
+proc-macro2 = "1.0"
+quote = "1.0"
+serde = "1.0"
+syn = "2.0"
+tera = { version = "1.19", default-features = false }
+walkdir = "2.5"
+yaml-front-matter = "0.1"
