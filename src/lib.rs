@@ -182,7 +182,10 @@ pub fn write_static_content_module<P>(fd: &mut File, base_path: P) -> Result<(),
 
 		impl ::actix_web::dev::HttpServiceFactory for StaticContent {
 			fn register(self, config: &mut ::actix_web::dev::AppService) {
-				config.register_service(::actix_web::dev::ResourceDef::new(vec![#(#resource_paths),*]), None, self, None);
+				let mut res_def = ::actix_web::dev::ResourceDef::new(vec![#(#resource_paths),*]);
+				res_def.set_name("StaticContent");
+
+				config.register_service(res_def, None, self, None);
 			}
 		}
 
